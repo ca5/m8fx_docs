@@ -106,3 +106,10 @@ A. You cannot open the UI if the plugin slot is set to "None" in the FX Settings
 - **Slot Limits**: A maximum of 4 effects can be loaded simultaneously in the GLOBAL FX CHAIN.
 - **CPU Load**: Loading multiple CPU-intensive AUv3 plugins may cause audio dropouts. If this happens, try increasing the "Audio Buffer Size" in the I/O settings.
 - **iOS Device Specifications**: The latest USB-C equipped iPhones/iPads can connect with a single cable. Devices with a Lightning port (iPhone 14 and earlier) require an official Apple Camera Adapter. Additionally, due to iOS security requirements, the app may require a restart after granting microphone permissions on the first launch.
+
+---
+
+## 9. Contact & Support
+
+If you have any questions, bug reports, or feedback, please feel free to contact the developer at:
+[ca54makske+m8fx@gmail.com](mailto:ca54makske+m8fx@gmail.com)
