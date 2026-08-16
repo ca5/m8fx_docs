@@ -21,15 +21,19 @@ flowchart TD
         FX1[FX 1] --> FX2[FX 2] --> FX3[FX 3] --> FX4[FX 4]
     end
     
-    FX4 -- "ON" --> MasterOut
-    FX4 -- "BYPASS" --> AltOut[Master以外のアウトプット]
+    FX4 -- "チェーン最終出力" --> MasterOut
+    
+    FX1 -. "BYPASS時の残響 (Trails)" .-> MasterOut
+    FX2 -. "BYPASS時の残響 (Trails)" .-> MasterOut
+    FX3 -. "BYPASS時の残響 (Trails)" .-> MasterOut
+    FX4 -. "BYPASS時の残響 (Trails)" .-> MasterOut
 ```
 
 1. **USB Audio In**: M8からUSBオーディオ経由で、各トラック（CH1〜8）およびリターン（MOD/DLY/REV）のパラアウト音声を受信します。
 2. **Track Control**: M8FX上でCH1〜8、およびリターンチャンネルのミュート、ソロをコントロールします。
 3. **Aux Sends**: 各チャンネルから任意のタイミングで「GLOBAL FX CHAIN (FX 1〜4)」へ音を分岐（センド）できます。
 4. **Global FX Chain**: 最大4つのAUv3プラグイン（エフェクト）が**直列（シリーズ）**で配置されており、センドされてきた音声を順番に加工します。
-5. **Master Out / Bypass Out**: FXチェーンを通過した最終的な音声は、状態が「ON」のときはメインのMaster Outへミックスされますが、「BYPASS」のときはMasterとは別のアウトプットへルーティングされます。
+5. **ON / BYPASS (Trails)**: エフェクトが「ON」の時はチェーンに沿って次のエフェクトへと音が流れます。**「BYPASS」**にすると、そのエフェクトはAUX Sendの直列ラインから外れて音声が素通りする状態になります。同時に、そのエフェクト内で鳴り残っているディレイやリバーブの残響音（Trails）は、後続のエフェクトを通らずに直接 **Master Out** へ送られるため、バイパス時でも残響が不自然に途切れることはありません。
 
 ---
 

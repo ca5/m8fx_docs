@@ -21,15 +21,19 @@ flowchart TD
         FX1[FX 1] --> FX2[FX 2] --> FX3[FX 3] --> FX4[FX 4]
     end
     
-    FX4 -- "ON" --> MasterOut
-    FX4 -- "BYPASS" --> AltOut[Alternative Output]
+    FX4 -- "Chain Output" --> MasterOut
+    
+    FX1 -. "BYPASS (Trails)" .-> MasterOut
+    FX2 -. "BYPASS (Trails)" .-> MasterOut
+    FX3 -. "BYPASS (Trails)" .-> MasterOut
+    FX4 -. "BYPASS (Trails)" .-> MasterOut
 ```
 
 1. **USB Audio In**: Multi-track audio (CH1–8) and return channels (MOD/DLY/REV) are received from the M8 via USB audio.
 2. **Track Control**: Mutes and solos for CH1–8 and return channels are controlled directly within M8FX.
 3. **Aux Sends**: Audio from each channel can be routed (sent) to the "GLOBAL FX CHAIN (FX 1–4)" at any time.
 4. **Global FX Chain**: Up to four AUv3 plugins are routed in **series**, processing the sent audio sequentially.
-5. **Output Routing (ON / BYPASS)**: The final processed audio from the FX chain is mixed into the Master Out when set to "ON". When set to "BYPASS", the audio is routed to an alternative output instead of the Master mix.
+5. **ON / BYPASS (Trails)**: When an effect is set to "ON", the audio flows through it and continues down the serial chain. When bypassed, the effect is removed from the main processing chain (allowing audio to pass through unaffected). However, any lingering effect tails (such as reverb or delay trails) are routed directly to the **Master Out**, ensuring that trails fade out naturally without being abruptly cut off or processed by subsequent effects.
 
 ---
 
