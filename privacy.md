@@ -1,4 +1,4 @@
-<link rel="icon" href="https://m8fx.ca5.me/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="https://m8fx.ca5.me/favicon.png" type="image/png">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
   
