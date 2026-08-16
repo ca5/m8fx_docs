@@ -44,6 +44,22 @@
     height: 1px !important;
     border: none !important;
   }
+  
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: 2rem auto;
+    aspect-ratio: 16 / 9;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
 
 <div align="center">
@@ -52,8 +68,8 @@
 
 # M8FX ユーザーマニュアル
 
-<div align="center" style="margin: 2rem 0;">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/qeHBCHznzzk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/qeHBCHznzzk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## 1. 概要 (Introduction)
