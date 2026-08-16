@@ -1,3 +1,49 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
+  
+  /* Hide GitHub Pages default header */
+  .page-header { display: none !important; }
+  .site-footer { display: none !important; }
+  
+  body, .markdown-body {
+    background-color: #111827 !important;
+    color: #F7F5F2 !important;
+    font-family: 'DotGothic16', sans-serif !important;
+  }
+  
+  .markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4 {
+    font-family: 'Press Start 2P', 'DotGothic16', sans-serif !important;
+    color: #00E5FF !important;
+    border-bottom: none !important;
+  }
+  
+  .markdown-body h1 { font-size: 1.4rem !important; margin-top: 2rem !important; }
+  .markdown-body h2 { font-size: 1.1rem !important; margin-top: 2rem !important; }
+  .markdown-body h3 { font-size: 0.9rem !important; margin-top: 1.5rem !important; }
+  
+  .markdown-body a { color: #FFB000 !important; text-decoration: none !important; }
+  .markdown-body a:hover { text-decoration: underline !important; }
+  
+  .markdown-body code {
+    background-color: #1f2937 !important;
+    color: #00E5FF !important;
+    font-family: 'Press Start 2P', 'DotGothic16', sans-serif !important;
+    font-size: 0.7rem !important;
+  }
+  
+  .markdown-body pre code {
+    font-family: monospace !important;
+    font-size: 0.9rem !important;
+    color: #F7F5F2 !important;
+  }
+  
+  .markdown-body hr {
+    background-color: #333333 !important;
+    height: 1px !important;
+    border: none !important;
+  }
+</style>
+
 # Privacy Policy
 
 **Effective Date:** August 16, 2026
