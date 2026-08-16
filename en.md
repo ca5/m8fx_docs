@@ -14,14 +14,12 @@ flowchart TD
     USBIn[USB Audio In] --> Tracks[Track Control CH1-8 & Returns]
     
     Tracks -- "Dry Signal" --> MasterOut[Master Out]
-    Tracks -- "Aux Send" --> FXChain
+    Tracks -- "Aux Send" --> FX1
     
-    subgraph GLOBAL FX CHAIN (Series)
+    subgraph fxchain ["GLOBAL FX CHAIN (Series)"]
         direction TB
         FX1[FX 1] --> FX2[FX 2] --> FX3[FX 3] --> FX4[FX 4]
     end
-    
-    FXChain --> FX1
     
     FX4 -- "ON" --> MasterOut
     FX4 -- "BYPASS" --> AltOut[Alternative Output]
