@@ -46,6 +46,10 @@
 
 # M8FX User Manual
 
+<div align="center" style="margin: 2rem 0;">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/qeHBCHznzzk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 ## 1. Introduction
 M8FX is a multi-track effects board application designed exclusively for the Dirtywave M8 Tracker.
 It receives multi-track audio from the M8 via USB, allowing you to intuitively control track mutes, solos, and auxiliary sends to external effects (AUv3 plugins) with a touch-friendly interface. It features a UI specialized for live performances and real-time sound design.
@@ -57,9 +61,9 @@ The audio signal routing between the M8 hardware and the M8FX app flows as follo
 
 ```mermaid
 flowchart LR
-    USBIn[USB Audio In] --> Tracks[Track Control CH1-8 & Returns]
+    USBIn["USB Audio In<br>(from M8)"] --> Tracks[Track Control CH1-8 & Returns]
     
-    Tracks -- "Dry Signal" --> MasterOut[Master Out]
+    Tracks -- "Dry Signal" --> MasterOut["Master Out<br>(to M8)"]
     Tracks -- "Aux Send" --> FX1
     
     subgraph fxchain ["GLOBAL FX CHAIN (Series)"]
@@ -84,6 +88,7 @@ flowchart LR
 3. **Aux Sends**: Audio from each channel can be routed (sent) to the "GLOBAL FX CHAIN (FX 1–4)" at any time.
 4. **Global FX Chain**: Up to four AUv3 plugins are routed in **series**, processing the sent audio sequentially.
 5. **ON / BYPASS (Trails)**: When an effect is set to "ON", the audio flows through it and continues down the serial chain. When bypassed, the effect is removed from the main processing chain (allowing audio to pass through unaffected). However, any lingering effect tails (such as reverb or delay trails) are routed directly to the **Master Out**, ensuring that trails fade out naturally without being abruptly cut off or processed by subsequent effects.
+6. **Return to M8 (Master Out)**: The final mixed 2-channel audio from M8FX (Master Out) is routed **back into the M8** via USB. Because the M8 is configured with `USB MAIN OUT` set to `POST:MIX INSERT` during setup, the M8 hardware will output this fully processed audio from the app as its final master mix (e.g. directly to your headphones).
 
 ---
 

@@ -46,6 +46,10 @@
 
 # M8FX ユーザーマニュアル
 
+<div align="center" style="margin: 2rem 0;">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/qeHBCHznzzk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 ## 1. 概要 (Introduction)
 M8FXは、Dirtywave M8 Tracker専用のマルチトラック・エフェクトボードアプリケーションです。
 M8からUSB経由でマルチトラックオーディオを受信し、アプリ内で各チャンネルのミュート、ソロ、および外部エフェクト（AUv3プラグイン）へのセンドをタッチパネル感覚で直感的にコントロールできます。ライブパフォーマンスやリアルタイムでのサウンドデザインに特化したUIを備えています。
@@ -57,9 +61,9 @@ M8本体とM8FXアプリ間の音声信号は以下のような流れで処理�
 
 ```mermaid
 flowchart LR
-    USBIn[USB Audio In] --> Tracks[Track Control CH1-8 & Returns]
+    USBIn["USB Audio In<br>(from M8)"] --> Tracks[Track Control CH1-8 & Returns]
     
-    Tracks -- "Dry Signal" --> MasterOut[Master Out]
+    Tracks -- "Dry Signal" --> MasterOut["Master Out<br>(to M8)"]
     Tracks -- "Aux Send" --> FX1
     
     subgraph fxchain ["GLOBAL FX CHAIN (直列配置)"]
@@ -84,6 +88,7 @@ flowchart LR
 3. **Aux Sends**: 各チャンネルから任意のタイミングで「GLOBAL FX CHAIN (FX 1〜4)」へ音を分岐（センド）できます。
 4. **Global FX Chain**: 最大4つのAUv3プラグイン（エフェクト）が**直列（シリーズ）**で配置されており、センドされてきた音声を順番に加工します。
 5. **ON / BYPASS (Trails)**: エフェクトが「ON」の時はチェーンに沿って次のエフェクトへと音が流れます。**「BYPASS」**にすると、そのエフェクトはAUX Sendの直列ラインから外れて音声が素通りする状態になります。同時に、そのエフェクト内で鳴り残っているディレイやリバーブの残響音（Trails）は、後続のエフェクトを通らずに直接 **Master Out** へ送られるため、バイパス時でも残響が不自然に途切れることはありません。
+6. **Return to M8 (Master Out)**: M8FX内でミックスされた最終的な2chの音声（Master Out）は、USB経由で**M8本体へ戻されます**。初期セットアップで M8の `USB MAIN OUT` を `POST:MIX INSERT` に設定しているため、M8FX側でエフェクトが掛かった音がM8本体の最終出力としてヘッドホン端子等からそのまま再生されます。
 
 ---
 
