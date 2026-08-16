@@ -44,13 +44,6 @@
     height: 1px !important;
     border: none !important;
   }
-  
-  .mermaid {
-    background-color: #F7F5F2 !important;
-    padding: 1rem;
-    border-radius: 8px;
-    overflow-x: auto;
-  }
 </style>
 
 # Privacy Policy

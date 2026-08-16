@@ -44,13 +44,6 @@
     height: 1px !important;
     border: none !important;
   }
-  
-  .mermaid {
-    background-color: #F7F5F2 !important;
-    padding: 1rem;
-    border-radius: 8px;
-    overflow-x: auto;
-  }
 </style>
 
 <div align="center">
@@ -209,7 +202,7 @@ A. FX Settingsでプラグインが「None」になっている場合は開け�
 <!-- GitHub Pages Mermaid setup -->
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true });
+  mermaid.initialize({ startOnLoad: true, theme: 'dark' });
   document.addEventListener("DOMContentLoaded", function() {
     const codeBlocks = document.querySelectorAll("code.language-mermaid");
     codeBlocks.forEach(block => {
