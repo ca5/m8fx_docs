@@ -4,6 +4,7 @@
   /* Hide GitHub Pages default header */
   .page-header { display: none !important; }
   .site-footer { display: none !important; }
+  .markdown-body > h1:first-child { display: none !important; }
   
   body, .markdown-body {
     background-color: #111827 !important;
