@@ -23,7 +23,7 @@ flowchart LR
     
     FX4 -- "Chain Output" --> MasterOut
     
-    TrailsMix[BYPASS Trails]
+    TrailsMix["BYPASS Trails"]
     
     FX1 -.-> TrailsMix
     FX2 -.-> TrailsMix

@@ -23,7 +23,7 @@ flowchart LR
     
     FX4 -- "チェーン最終出力" --> MasterOut
     
-    TrailsMix[BYPASS時の残響\n(Trails)]
+    TrailsMix["BYPASS時の残響<br>(Trails)"]
     
     FX1 -.-> TrailsMix
     FX2 -.-> TrailsMix
