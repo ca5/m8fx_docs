@@ -9,11 +9,29 @@ It receives multi-track audio from the M8 via USB, allowing you to intuitively c
 ## 2. System Concept & Signal Flow
 The audio signal routing between the M8 hardware and the M8FX app flows as follows:
 
+```mermaid
+flowchart TD
+    USBIn[USB Audio In] --> Tracks[Track Control CH1-8 & Returns]
+    
+    Tracks -- "Dry Signal" --> MasterOut[Master Out]
+    Tracks -- "Aux Send" --> FXChain
+    
+    subgraph GLOBAL FX CHAIN (Series)
+        direction TB
+        FX1[FX 1] --> FX2[FX 2] --> FX3[FX 3] --> FX4[FX 4]
+    end
+    
+    FXChain --> FX1
+    
+    FX4 -- "ON" --> MasterOut
+    FX4 -- "BYPASS" --> AltOut[Alternative Output]
+```
+
 1. **USB Audio In**: Multi-track audio (CH1–8) and return channels (MOD/DLY/REV) are received from the M8 via USB audio.
 2. **Track Control**: Mutes and solos for CH1–8 and return channels are controlled directly within M8FX.
 3. **Aux Sends**: Audio from each channel can be routed (sent) to the "GLOBAL FX CHAIN (FX 1–4)" at any time.
-4. **Global FX Chain**: Up to four AUv3 plugins can be loaded to process the sent audio.
-5. **Master Out**: The final mixed audio from M8FX is routed to the main output.
+4. **Global FX Chain**: Up to four AUv3 plugins are routed in **series**, processing the sent audio sequentially.
+5. **Output Routing (ON / BYPASS)**: The final processed audio from the FX chain is mixed into the Master Out when set to "ON". When set to "BYPASS", the audio is routed to an alternative output instead of the Master mix.
 
 ---
 

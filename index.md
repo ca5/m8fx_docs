@@ -9,11 +9,29 @@ M8からUSB経由でマルチトラックオーディオを受信し、アプリ
 ## 2. システム概念・シグナルフロー (Signal Flow)
 M8本体とM8FXアプリ間の音声信号は以下のような流れで処理されます。
 
+```mermaid
+flowchart TD
+    USBIn[USB Audio In] --> Tracks[Track Control CH1-8 & Returns]
+    
+    Tracks -- "Dry Signal" --> MasterOut[Master Out]
+    Tracks -- "Aux Send" --> FXChain
+    
+    subgraph GLOBAL FX CHAIN (直列配置)
+        direction TB
+        FX1[FX 1] --> FX2[FX 2] --> FX3[FX 3] --> FX4[FX 4]
+    end
+    
+    FXChain --> FX1
+    
+    FX4 -- "ON" --> MasterOut
+    FX4 -- "BYPASS" --> AltOut[Master以外のアウトプット]
+```
+
 1. **USB Audio In**: M8からUSBオーディオ経由で、各トラック（CH1〜8）およびリターン（MOD/DLY/REV）のパラアウト音声を受信します。
 2. **Track Control**: M8FX上でCH1〜8、およびリターンチャンネルのミュート、ソロをコントロールします。
 3. **Aux Sends**: 各チャンネルから任意のタイミングで「GLOBAL FX CHAIN (FX 1〜4)」へ音を分岐（センド）できます。
-4. **Global FX Chain**: 最大4つのAUv3プラグイン（エフェクト）をロードし、センドされてきた音声を加工します。
-5. **Master Out**: M8FX内でミックスされた最終的な音声がメインアウトプットから出力されます。
+4. **Global FX Chain**: 最大4つのAUv3プラグイン（エフェクト）が**直列（シリーズ）**で配置されており、センドされてきた音声を順番に加工します。
+5. **Master Out / Bypass Out**: FXチェーンを通過した最終的な音声は、状態が「ON」のときはメインのMaster Outへミックスされますが、「BYPASS」のときはMasterとは別のアウトプットへルーティングされます。
 
 ---
 
