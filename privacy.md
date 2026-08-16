@@ -1,9 +1,11 @@
+<link rel="icon" href="https://m8fx.ca5.me/favicon.svg" type="image/svg+xml">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
   
   /* Hide GitHub Pages default header */
   .page-header { display: none !important; }
   .site-footer { display: none !important; }
+  .markdown-body > h1:first-child { display: none !important; }
   
   body, .markdown-body {
     background-color: #111827 !important;

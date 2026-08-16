@@ -1,9 +1,11 @@
+<link rel="icon" href="https://m8fx.ca5.me/favicon.svg" type="image/svg+xml">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
   
   /* Hide GitHub Pages default header */
   .page-header { display: none !important; }
   .site-footer { display: none !important; }
+  .markdown-body > h1:first-child { display: none !important; }
   
   body, .markdown-body {
     background-color: #111827 !important;
@@ -43,6 +45,10 @@
     border: none !important;
   }
 </style>
+
+<div align="center">
+  <img src="https://m8fx.ca5.me/favicon.svg" width="128" alt="M8FX Logo" style="margin-top: 2rem;" />
+</div>
 
 # M8FX User Manual
 
@@ -196,7 +202,7 @@ If you have any questions, bug reports, or feedback, please feel free to contact
 <!-- GitHub Pages Mermaid setup -->
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true });
+  mermaid.initialize({ startOnLoad: true, theme: 'dark' });
   document.addEventListener("DOMContentLoaded", function() {
     const codeBlocks = document.querySelectorAll("code.language-mermaid");
     codeBlocks.forEach(block => {
