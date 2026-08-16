@@ -44,6 +44,22 @@
     height: 1px !important;
     border: none !important;
   }
+  
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: 2rem auto;
+    aspect-ratio: 16 / 9;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
 
 # Privacy Policy
