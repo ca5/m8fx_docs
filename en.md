@@ -61,9 +61,9 @@ The audio signal routing between the M8 hardware and the M8FX app flows as follo
 
 ```mermaid
 flowchart LR
-    USBIn["USB Audio In<br>(from M8)"] --> Tracks[Track Control CH1-8 & Returns]
+    M8_Out["M8 Multi-Track USB Out"] -- "USB Audio" --> Tracks[Track Control CH1-8 & Returns]
     
-    Tracks -- "Dry Signal" --> MasterOut["Master Out<br>(to M8)"]
+    Tracks -- "Dry Signal" --> MasterOut[Master Out]
     Tracks -- "Aux Send" --> FX1
     
     subgraph fxchain ["GLOBAL FX CHAIN (Series)"]
@@ -81,6 +81,9 @@ flowchart LR
     FX4 -.-> TrailsMix
     
     TrailsMix --> MasterOut
+    
+    MasterOut -- "USB Audio" --> M8_In["M8 USB Main In<br>(POST:MIX INSERT)"]
+    M8_In --> HP(("Headphone / Line Out"))
 ```
 
 1. **USB Audio In**: Multi-track audio (CH1–8) and return channels (MOD/DLY/REV) are received from the M8 via USB audio.

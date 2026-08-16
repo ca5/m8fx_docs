@@ -61,9 +61,9 @@ M8本体とM8FXアプリ間の音声信号は以下のような流れで処理�
 
 ```mermaid
 flowchart LR
-    USBIn["USB Audio In<br>(from M8)"] --> Tracks[Track Control CH1-8 & Returns]
+    M8_Out["M8 Multi-Track USB Out"] -- "USB Audio" --> Tracks[Track Control CH1-8 & Returns]
     
-    Tracks -- "Dry Signal" --> MasterOut["Master Out<br>(to M8)"]
+    Tracks -- "Dry Signal" --> MasterOut[Master Out]
     Tracks -- "Aux Send" --> FX1
     
     subgraph fxchain ["GLOBAL FX CHAIN (直列配置)"]
@@ -81,6 +81,9 @@ flowchart LR
     FX4 -.-> TrailsMix
     
     TrailsMix --> MasterOut
+    
+    MasterOut -- "USB Audio" --> M8_In["M8 USB Main In<br>(POST:MIX INSERT)"]
+    M8_In --> HP(("Headphone / Line Out"))
 ```
 
 1. **USB Audio In**: M8からUSBオーディオ経由で、各トラック（CH1〜8）およびリターン（MOD/DLY/REV）のパラアウト音声を受信します。
