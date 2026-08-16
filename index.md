@@ -10,23 +10,27 @@ M8からUSB経由でマルチトラックオーディオを受信し、アプリ
 M8本体とM8FXアプリ間の音声信号は以下のような流れで処理されます。
 
 ```mermaid
-flowchart TD
+flowchart LR
     USBIn[USB Audio In] --> Tracks[Track Control CH1-8 & Returns]
     
     Tracks -- "Dry Signal" --> MasterOut[Master Out]
     Tracks -- "Aux Send" --> FX1
     
     subgraph fxchain ["GLOBAL FX CHAIN (直列配置)"]
-        direction TB
+        direction LR
         FX1[FX 1] --> FX2[FX 2] --> FX3[FX 3] --> FX4[FX 4]
     end
     
     FX4 -- "チェーン最終出力" --> MasterOut
     
-    FX1 -. "BYPASS時の残響 (Trails)" .-> MasterOut
-    FX2 -. "BYPASS時の残響 (Trails)" .-> MasterOut
-    FX3 -. "BYPASS時の残響 (Trails)" .-> MasterOut
-    FX4 -. "BYPASS時の残響 (Trails)" .-> MasterOut
+    TrailsMix[BYPASS時の残響\n(Trails)]
+    
+    FX1 -.-> TrailsMix
+    FX2 -.-> TrailsMix
+    FX3 -.-> TrailsMix
+    FX4 -.-> TrailsMix
+    
+    TrailsMix --> MasterOut
 ```
 
 1. **USB Audio In**: M8からUSBオーディオ経由で、各トラック（CH1〜8）およびリターン（MOD/DLY/REV）のパラアウト音声を受信します。

@@ -10,23 +10,27 @@ It receives multi-track audio from the M8 via USB, allowing you to intuitively c
 The audio signal routing between the M8 hardware and the M8FX app flows as follows:
 
 ```mermaid
-flowchart TD
+flowchart LR
     USBIn[USB Audio In] --> Tracks[Track Control CH1-8 & Returns]
     
     Tracks -- "Dry Signal" --> MasterOut[Master Out]
     Tracks -- "Aux Send" --> FX1
     
     subgraph fxchain ["GLOBAL FX CHAIN (Series)"]
-        direction TB
+        direction LR
         FX1[FX 1] --> FX2[FX 2] --> FX3[FX 3] --> FX4[FX 4]
     end
     
     FX4 -- "Chain Output" --> MasterOut
     
-    FX1 -. "BYPASS (Trails)" .-> MasterOut
-    FX2 -. "BYPASS (Trails)" .-> MasterOut
-    FX3 -. "BYPASS (Trails)" .-> MasterOut
-    FX4 -. "BYPASS (Trails)" .-> MasterOut
+    TrailsMix[BYPASS Trails]
+    
+    FX1 -.-> TrailsMix
+    FX2 -.-> TrailsMix
+    FX3 -.-> TrailsMix
+    FX4 -.-> TrailsMix
+    
+    TrailsMix --> MasterOut
 ```
 
 1. **USB Audio In**: Multi-track audio (CH1–8) and return channels (MOD/DLY/REV) are received from the M8 via USB audio.
