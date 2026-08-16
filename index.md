@@ -37,9 +37,10 @@ flowchart TD
 
 ### M8本体の設定
 1. M8をiPhone/iPad等のiOSデバイスにUSB-Cケーブルで直接接続します。（※Lightning端子搭載の古いiPhone/iPadをご利用の場合は、Apple純正の「Lightning - USBカメラアダプタ」等が別途必要です）
-2. M8本体の設定画面から、以下のオーディオ設定に変更してください。
-   - **USB AUDIO MODE**: `MULTICHANNEL`
-   - **USB MAIN OUT**: `POST:MIX INSERT`
+2. M8本体の設定画面から、以下のオーディオ・MIDI設定に変更してください。
+   - **USB AUDIO MODE**: `MULTICHANNEL` （システム設定）
+   - **USB MAIN OUT**: `POST:MIX INSERT` （システム設定）
+   - **SEND SYNC**: `ON` （※PROJECT > MIDI SETTINGS画面にあります。アプリにBPMを同期させるために必須です。新しいプロジェクトを作成するたびにONにするか、Save Default Settingsを推奨します）
 
 ### アプリ側の設定
 1. M8FXアプリを起動します。
