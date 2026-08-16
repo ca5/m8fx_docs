@@ -138,3 +138,21 @@ A. FX Settingsでプラグインが「None」になっている場合は開け�
 
 ご質問やバグ報告、フィードバックなどがございましたら、以下のメールアドレスまでお気軽にご連絡ください。
 [ca54makske+m8fx@gmail.com](mailto:ca54makske+m8fx@gmail.com)
+
+<!-- GitHub Pages Mermaid setup -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+  document.addEventListener("DOMContentLoaded", function() {
+    const codeBlocks = document.querySelectorAll("code.language-mermaid");
+    codeBlocks.forEach(block => {
+      const pre = block.parentElement;
+      if (pre.tagName === 'PRE') {
+        const div = document.createElement("div");
+        div.className = "mermaid";
+        div.textContent = block.textContent;
+        pre.replaceWith(div);
+      }
+    });
+  });
+</script>

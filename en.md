@@ -138,3 +138,21 @@ A. You cannot open the UI if the plugin slot is set to "None" in the FX Settings
 
 If you have any questions, bug reports, or feedback, please feel free to contact the developer at:
 [ca54makske+m8fx@gmail.com](mailto:ca54makske+m8fx@gmail.com)
+
+<!-- GitHub Pages Mermaid setup -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+  document.addEventListener("DOMContentLoaded", function() {
+    const codeBlocks = document.querySelectorAll("code.language-mermaid");
+    codeBlocks.forEach(block => {
+      const pre = block.parentElement;
+      if (pre.tagName === 'PRE') {
+        const div = document.createElement("div");
+        div.className = "mermaid";
+        div.textContent = block.textContent;
+        pre.replaceWith(div);
+      }
+    });
+  });
+</script>
