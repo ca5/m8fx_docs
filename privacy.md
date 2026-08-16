@@ -12,7 +12,7 @@
   }
   
   .markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4 {
-    font-family: 'Press Start 2P', system-ui !important;
+    font-family: 'Press Start 2P', 'DotGothic16', sans-serif !important;
     color: #00E5FF !important;
     border-bottom: none !important;
   }
@@ -27,7 +27,7 @@
   .markdown-body code {
     background-color: #1f2937 !important;
     color: #00E5FF !important;
-    font-family: 'Press Start 2P', system-ui !important;
+    font-family: 'Press Start 2P', 'DotGothic16', sans-serif !important;
     font-size: 0.7rem !important;
   }
   
